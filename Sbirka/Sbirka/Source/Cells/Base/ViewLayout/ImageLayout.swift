@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public enum ImageSource {
-    case network(String?)
+//    case network(String?)
     case named(String)
     case data(Foundation.Data)
     case image(UIImage)
@@ -43,10 +43,9 @@ extension UIImageView {
     
     func applySource(_ source: ImageSource) {
         switch source {
-        case .network(let url):
+//        case .network(let url):
 //            setImageByUrl(url)
         // TODO: provide method to download via third party libraries
-            break
         case .data(let data):
             image = UIImage(data: data)
         case .named(let named):
@@ -70,9 +69,8 @@ extension UIButton {
         if isHidden { return }
         frame = layout.frame
         switch layout.source {
-        case .network(let url):
+//        case .network(let url):
 //            setImageByUrl(url, clear: clear)
-            break
         case .data(let data):
             let image = UIImage(data: data)
             setImage(image, for: .normal)

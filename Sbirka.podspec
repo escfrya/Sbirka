@@ -24,4 +24,5 @@ Helps you to create fast scrolling ui
   s.source       = { :git => "https://github.com/escfrya/Sbirka.git", :tag => "#{s.version}" }
   s.source_files  = "Sbirka/Sbirka/Source/**/*.{swift}"
   s.framework  = "UIKit"
+  s.swift_version = "4.0"
 end
