@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TextCell: BaseCollectionCell<TextCellViewModel, AutolayoutCellLayout> {
+public class TextCell: BaseCollectionCell<TextCellViewModel, AutolayoutCellLayout> {
     var labelView: UILabel!
     private var topConstraint: NSLayoutConstraint!
     private var bottomConstraint: NSLayoutConstraint!
@@ -37,7 +37,7 @@ class TextCell: BaseCollectionCell<TextCellViewModel, AutolayoutCellLayout> {
         ])
     }
     
-    override func configurate(_ item: TextCellViewModel, visible: Bool, prototype: Bool) {
+    override public func configurate(_ item: TextCellViewModel, visible: Bool, prototype: Bool) {
         super.configurate(item, visible: visible, prototype: prototype)
         
         labelView.textAlignment = item.aligment

@@ -8,5 +8,5 @@
 
 import Foundation
 
-class AutolayoutCellLayout: BaseCellLayout {
+public class AutolayoutCellLayout: BaseCellLayout {
 }

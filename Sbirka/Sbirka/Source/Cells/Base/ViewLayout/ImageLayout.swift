@@ -45,14 +45,13 @@ extension UIImageView {
         switch source {
         case .network(let url):
 //            setImageByUrl(url)
-        // TODO: fix
+        // TODO: provide method to download via third party libraries
             break
         case .data(let data):
             image = UIImage(data: data)
         case .named(let named):
             image = UIImage(named: named)
             //        case .LocalByName(let fileName):
-        //            image = ImageFacade.instance.imageByName(fileName)
         case .image(let img):
             image = img
         case .none:
@@ -73,7 +72,6 @@ extension UIButton {
         switch layout.source {
         case .network(let url):
 //            setImageByUrl(url, clear: clear)
-        // TODO: fix
             break
         case .data(let data):
             let image = UIImage(data: data)
@@ -82,7 +80,6 @@ extension UIButton {
             let image = UIImage(named: named)
             setImage(image, for: .normal)
             //        case .LocalByName(let fileName):
-            //            let image = ImageFacade.instance.imageByName(fileName)
         //            setImage(image, forState: .Normal)
         case .image(let img):
             setImage(img, for: .normal)

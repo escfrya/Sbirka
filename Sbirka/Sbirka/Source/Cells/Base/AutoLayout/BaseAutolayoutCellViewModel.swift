@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BaseAutolayoutCellViewModel: BaseCellViewModel {
+public class BaseAutolayoutCellViewModel: BaseCellViewModel {
     static var autoLayoutCellsPrototypes: [String: CollectionBaseCell] = [:]
     
     internal func process(width: CGFloat) -> CGFloat {

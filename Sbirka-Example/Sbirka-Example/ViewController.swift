@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Sbirka
 
 public enum CellsRegistrotorValue: CellsRegistrator {
     case test()

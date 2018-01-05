@@ -24,7 +24,7 @@ public class SbirkaView: UICollectionView, UICollectionViewDelegate, UICollectio
     
     var updateItemsCompleted: (() -> Void)?
     var items = [[BaseCellViewModel]]()
-    weak var emptyProvider: SbirkaEmptyViewProvider?
+    public weak var emptyProvider: SbirkaEmptyViewProvider?
     
     // MARK: init
     

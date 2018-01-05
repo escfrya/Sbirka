@@ -13,7 +13,7 @@ public protocol CellsRegistrator {
 }
 
 extension SbirkaView {
-    func regCollectionCells(_ cells: [(CollectionBaseCell.Type, BaseCellViewModel.Type)]) {
+    public func regCollectionCells(_ cells: [(CollectionBaseCell.Type, BaseCellViewModel.Type)]) {
         for cell in cells {
             self.registerClass(cell.0, identifier: Identifier.identifier(for: cell.1))
         }

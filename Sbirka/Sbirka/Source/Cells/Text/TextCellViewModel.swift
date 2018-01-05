@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TextCellViewModel: BaseAutolayoutCellViewModel {
+public class TextCellViewModel: BaseAutolayoutCellViewModel {
     var text: NSAttributedString!
     var aligment: NSTextAlignment!
     var top: CGFloat = 0
@@ -18,7 +18,7 @@ class TextCellViewModel: BaseAutolayoutCellViewModel {
     var right: CGFloat = 0
     var height: CGFloat?
     
-    init(text: NSAttributedString, id: String = UUID().uuidString, aligment: NSTextAlignment = .left, background: UIColor = UIColor.clear, top: CGFloat = 0, bottom: CGFloat = 0, left: CGFloat = 16, right: CGFloat = 16, height: CGFloat? = nil) {
+    public init(text: NSAttributedString, id: String = UUID().uuidString, aligment: NSTextAlignment = .left, background: UIColor = UIColor.clear, top: CGFloat = 0, bottom: CGFloat = 0, left: CGFloat = 16, right: CGFloat = 16, height: CGFloat? = nil) {
         super.init(id: id)
         
         self.text = text

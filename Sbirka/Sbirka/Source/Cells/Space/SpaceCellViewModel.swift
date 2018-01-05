@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-class SpaceCellViewModel: BaseAutolayoutCellViewModel {
+public class SpaceCellViewModel: BaseAutolayoutCellViewModel {
     var height: CGFloat = 0
     
-    init(id: String = UUID().uuidString, height: CGFloat) {
+    public init(id: String = UUID().uuidString, height: CGFloat) {
         super.init(id: id)
         
         self.height = height

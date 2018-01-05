@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SpaceCell: BaseCollectionCell<SpaceCellViewModel, AutolayoutCellLayout> {
+public class SpaceCell: BaseCollectionCell<SpaceCellViewModel, AutolayoutCellLayout> {
     
     private var height: NSLayoutConstraint!
     
@@ -23,7 +23,7 @@ class SpaceCell: BaseCollectionCell<SpaceCellViewModel, AutolayoutCellLayout> {
         NSLayoutConstraint.activate([height])
     }
     
-    override func configurate(_ item: SpaceCellViewModel, visible: Bool, prototype: Bool) {
+    override public func configurate(_ item: SpaceCellViewModel, visible: Bool, prototype: Bool) {
         super.configurate(item, visible: visible, prototype: prototype)
         
         height.constant = item.height

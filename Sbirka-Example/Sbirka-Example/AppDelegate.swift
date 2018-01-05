@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Sbirka
+//  Sbirka-Example
 //
-//  Created by Игорь on 02/01/2018.
+//  Created by Игорь on 05/01/2018.
 //  Copyright © 2018 Xuli. All rights reserved.
 //
 
