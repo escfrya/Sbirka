@@ -4,3 +4,10 @@
 
 # Sbirka
 UICollectionView wrapper library
+
+### CocoaPods
+
+Add to Podfile:
+
+```rb
+pod 'Sbirka'
