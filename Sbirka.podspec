@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Sbirka"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "UICollectionView wrapper library"
   s.description  = <<-DESC
 Helps you to create fast scrolling ui
