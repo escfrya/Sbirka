@@ -28,6 +28,6 @@ class TestViewController: UIViewController {
             sbirkaView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             sbirkaView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
             sbirkaView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
-            ])
+        ])
     }
 }

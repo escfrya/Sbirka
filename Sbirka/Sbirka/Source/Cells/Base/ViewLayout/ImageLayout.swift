@@ -22,7 +22,7 @@ public class ImageLayout: ViewLayout {
     
     var source: ImageSource
     
-    init(frame: CGRect, source: ImageSource, hidden: Bool = false) {
+    public init(frame: CGRect, source: ImageSource, hidden: Bool = false) {
         self.source = source
         
         super.init(frame: frame, hidden: hidden)
@@ -34,14 +34,14 @@ public class ImageLayout: ViewLayout {
 }
 
 extension UIImageView {
-    func applyLayout(_ layout: ImageLayout) {
+    public func applyLayout(_ layout: ImageLayout) {
         isHidden = layout.hidden
         if isHidden { return }
         frame = layout.frame
         applySource(layout.source)
     }
     
-    func applySource(_ source: ImageSource) {
+    public func applySource(_ source: ImageSource) {
         switch source {
 //        case .network(let url):
 //            setImageByUrl(url)
@@ -60,11 +60,11 @@ extension UIImageView {
 }
 
 extension UIButton {
-    func applyLayout(_ layout: ImageLayout) {
+    public func applyLayout(_ layout: ImageLayout) {
         applyLayout(layout, clear: true)
     }
     
-    func applyLayout(_ layout: ImageLayout, clear: Bool) {
+    public func applyLayout(_ layout: ImageLayout, clear: Bool) {
         isHidden = layout.hidden
         if isHidden { return }
         frame = layout.frame

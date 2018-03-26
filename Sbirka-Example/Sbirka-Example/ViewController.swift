@@ -9,25 +9,11 @@
 import UIKit
 import Sbirka
 
-public enum CellsRegistrotorValue: CellsRegistrator {
-    case test()
-    
-    public func registerCells(view: SbirkaView) {
-        switch self {
-        case .test():
-            view.regCollectionCells([
-                (TextCell.self, TextCellViewModel.self),
-                (SpaceCell.self, SpaceCellViewModel.self)
-            ])
-        }
-    }
-}
-
 class ViewController: UIViewController {
     lazy var sbirkaView: SbirkaView = { [unowned self] in
         let view = SbirkaView()
         view.emptyProvider = self
-        view.cellType = CellsRegistrotorValue.test()
+        view.cellType = CellsRegistrotorValue.test
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -45,6 +31,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.white
         view.addSubview(sbirkaView)
         view.addSubview(button)
         

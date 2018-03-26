@@ -13,7 +13,7 @@ public protocol CellHeightDelegate: class {
     func cellHeightDidChange(_ vmId: String)
 }
 
-public class CollectionBaseCell: UICollectionViewCell {
+open class CollectionBaseCell: UICollectionViewCell {
     
     public weak var heightDelegate: CellHeightDelegate?
     
@@ -27,15 +27,15 @@ public class CollectionBaseCell: UICollectionViewCell {
     }
 }
 
-public class BaseCollectionCell<TViewModel: BaseCellViewModel, TLayout: BaseCellLayout>: CollectionBaseCell {
+open class BaseCollectionCell<TViewModel: BaseCellViewModel, TLayout: BaseCellLayout>: CollectionBaseCell {
     
-    public weak var item: TViewModel?
+    open weak var item: TViewModel?
 
-    public var selectable: Bool {
+    open var selectable: Bool {
         return false
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         
         setup()
@@ -47,13 +47,12 @@ public class BaseCollectionCell<TViewModel: BaseCellViewModel, TLayout: BaseCell
         setup()
     }
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         contentView.frame = bounds
         super.layoutSubviews()
     }
     
     private func setup() {
-        
         if selectable {
             let selectedView = UIView(frame: bounds)
             selectedView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
@@ -63,7 +62,7 @@ public class BaseCollectionCell<TViewModel: BaseCellViewModel, TLayout: BaseCell
         setupViews()
     }
     
-    func setupViews() {
+    open func setupViews() {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         let bottomConstraint = contentView.bottomAnchor.constraint(equalTo: contentView.superview!.bottomAnchor, constant: 0)
@@ -83,12 +82,12 @@ public class BaseCollectionCell<TViewModel: BaseCellViewModel, TLayout: BaseCell
     }
     
     // method for autolayout cells (with prototypes)
-    public func configurate(_ item: TViewModel, visible: Bool, prototype: Bool) {
+    open func configurate(_ item: TViewModel, visible: Bool, prototype: Bool) {
         configurate(item, visible: visible)
     }
     
     // method for frame layout cells
-    public func configurate(_ item: TViewModel, visible: Bool) {
+    open func configurate(_ item: TViewModel, visible: Bool) {
         self.item = item
         contentView.backgroundColor = item.background ?? UIColor.clear
         if let cellLayout = item.cellLayout as? TLayout {
@@ -96,13 +95,13 @@ public class BaseCollectionCell<TViewModel: BaseCellViewModel, TLayout: BaseCell
         }
     }
     
-    override public func configurate(_ item: BaseCellViewModel, visible: Bool, prototype: Bool) {
+    override open func configurate(_ item: BaseCellViewModel, visible: Bool, prototype: Bool) {
         if let item = item as? TViewModel {
             self.configurate(item, visible: visible, prototype: prototype)
         }
     }
     
-    internal func applyLayout(_ layout: TLayout, visible: Bool) {
+    open func applyLayout(_ layout: TLayout, visible: Bool) {
         
     }
 }

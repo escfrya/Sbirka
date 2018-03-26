@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-public class ViewLayout {
+open class ViewLayout {
     var frame: CGRect
     var hidden: Bool
     
-    init(frame: CGRect, hidden: Bool = false) {
+    public init(frame: CGRect, hidden: Bool = false) {
         self.frame = frame
         self.hidden = hidden
     }
@@ -24,34 +24,34 @@ public class ViewLayout {
 }
 
 extension ViewLayout {
-    var leftX: CGFloat {
+    public var leftX: CGFloat {
         return frame.origin.x
     }
-    var topY: CGFloat {
+    public var topY: CGFloat {
         return frame.origin.y
     }
-    var rightX: CGFloat {
+    public var rightX: CGFloat {
         return frame.origin.x + frame.width
     }
-    var bottomY: CGFloat {
+    public var bottomY: CGFloat {
         return frame.origin.y + frame.height
     }
-    var width: CGFloat {
+    public var width: CGFloat {
         return frame.width
     }
-    var height: CGFloat {
+    public var height: CGFloat {
         return frame.height
     }
-    var centerX: CGFloat {
+    public var centerX: CGFloat {
         return frame.midX
     }
-    var centerY: CGFloat {
+    public var centerY: CGFloat {
         return frame.midY
     }
 }
 
 extension UIView {
-    func applyLayout(_ layout: ViewLayout) {
+    public func applyLayout(_ layout: ViewLayout) {
         isHidden = layout.hidden
         if isHidden { return }
         frame = layout.frame

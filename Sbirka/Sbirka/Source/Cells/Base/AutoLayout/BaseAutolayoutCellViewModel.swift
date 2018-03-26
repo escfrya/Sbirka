@@ -16,7 +16,7 @@ public class BaseAutolayoutCellViewModel: BaseCellViewModel {
         return width
     }
     
-    override func processLayout(_ width: CGFloat, collectionView: SbirkaView) {
+    override public func processLayout(_ width: CGFloat, collectionView: SbirkaView) {
         let width = process(width: width)
         let identifier = Identifier.identifier(for: type(of: self))
         var prototype: CollectionBaseCell!

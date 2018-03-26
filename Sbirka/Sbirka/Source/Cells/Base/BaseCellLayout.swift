@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-public class BaseCellLayout: ViewLayout {
+open class BaseCellLayout: ViewLayout {
     var cellWidth: CGFloat = 0
     
-    init(width: CGFloat, frame: CGRect, hidden: Bool = false) {
+    public init(width: CGFloat, frame: CGRect, hidden: Bool = false) {
         super.init(frame: frame, hidden: hidden)
         
         self.cellWidth = width
     }
     
-    init(width: CGFloat, cellSize: CGSize, hidden: Bool = false) {
+    public init(width: CGFloat, cellSize: CGSize, hidden: Bool = false) {
         super.init(frame: CGRect(origin: CGPoint.zero, size: cellSize), hidden: hidden)
         
         self.cellWidth = width

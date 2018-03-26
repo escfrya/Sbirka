@@ -14,14 +14,14 @@ public class TextLayout: ViewLayout {
     var text: String!
     var font: UIFont?
     
-    init(frame: CGRect, text: String, font: UIFont?, hidden: Bool = false) {
+    public init(frame: CGRect, text: String, font: UIFont?, hidden: Bool = false) {
         self.text = text
         self.font = font
         
         super.init(frame: frame, hidden: hidden)
     }
     
-    init(text: String, font: UIFont, width: CGFloat, origin: CGPoint) {
+    public init(text: String, font: UIFont, width: CGFloat, origin: CGPoint) {
         self.text = text
         self.font = font
         
@@ -35,7 +35,7 @@ public class TextLayout: ViewLayout {
 }
 
 extension UILabel {
-    func applyLayout(_ layout: TextLayout) {
+    public func applyLayout(_ layout: TextLayout) {
         isHidden = layout.hidden
         if isHidden { return }
         frame = layout.frame
@@ -47,7 +47,7 @@ extension UILabel {
 }
 
 extension UITextView {
-    func applyLayout(_ layout: TextLayout) {
+    public func applyLayout(_ layout: TextLayout) {
         isHidden = layout.hidden
         if isHidden { return }
         frame = layout.frame

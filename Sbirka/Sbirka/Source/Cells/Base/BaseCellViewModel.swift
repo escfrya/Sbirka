@@ -9,39 +9,24 @@
 import Foundation
 import UIKit
 
-public class BaseCellViewModel {
-    
-    var background: UIColor?
-    var cellLayout: BaseCellLayout!
-    
-    var id: String = ""
-    //    var oldId: String?
-    
-    var idInt: Int64 {
-        return Int64(id) ?? 0
-    }
-    
-    init(id: String) {
+open class BaseCellViewModel {
+    open var background: UIColor?
+    open var cellLayout: BaseCellLayout!
+    open var id: String = ""
+
+    public init(id: String) {
         self.id = id
     }
-    
-    //    var identifier: String {
-    //        return BaseCellViewModel.ident(self.dynamicType)
-    //    }
-    //
-    //    class func ident(type: BaseCellViewModel.Type) -> String {
-    //        return String(type)
-    //    }
-    
-    var identifier: String {
+
+    open var identifier: String {
         return Identifier.identifier(for: type(of: self))
     }
     
-    internal func processLayout(_ width: CGFloat, collectionView: SbirkaView) {
+    open func processLayout(_ width: CGFloat, collectionView: SbirkaView) {
         processLayout(width)
     }
     
-    func processLayout(_ width: CGFloat) {
+    open func processLayout(_ width: CGFloat) {
         
     }
     

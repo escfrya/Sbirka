@@ -16,7 +16,7 @@ public class BezierPathLayout: ViewLayout {
     var lineDashPattern: [NSNumber]?
     var borderWidth: CGFloat = 0
     
-    init(frame: CGRect, path: UIBezierPath?, strokeColor: UIColor, fillColor: UIColor, borderWidth: CGFloat, lineDashPattern: [NSNumber]?, hidden: Bool = false) {
+    public init(frame: CGRect, path: UIBezierPath?, strokeColor: UIColor, fillColor: UIColor, borderWidth: CGFloat, lineDashPattern: [NSNumber]?, hidden: Bool = false) {
         self.path = path
         self.strokeColor = strokeColor
         self.fillColor = fillColor

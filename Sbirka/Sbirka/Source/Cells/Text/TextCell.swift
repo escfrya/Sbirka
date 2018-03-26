@@ -16,7 +16,7 @@ public class TextCell: BaseCollectionCell<TextCellViewModel, AutolayoutCellLayou
     private var leftConstraint: NSLayoutConstraint!
     private var rightConstraint: NSLayoutConstraint!
     
-    override func setupViews() {
+    override public func setupViews() {
         super.setupViews()
         
         backgroundColor = UIColor.clear

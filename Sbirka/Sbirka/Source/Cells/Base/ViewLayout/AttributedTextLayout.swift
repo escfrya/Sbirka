@@ -13,14 +13,14 @@ public class AttributedTextLayout: ViewLayout {
     var text: NSAttributedString!
     var aligment: NSTextAlignment!
     
-    init(frame: CGRect, text: NSAttributedString, aligment: NSTextAlignment = .left, hidden: Bool = false) {
+    public init(frame: CGRect, text: NSAttributedString, aligment: NSTextAlignment = .left, hidden: Bool = false) {
         self.text = text
         self.aligment = aligment
         
         super.init(frame: frame, hidden: hidden)
     }
     
-    init(text: NSAttributedString, width: CGFloat, origin: CGPoint, aligment: NSTextAlignment = .left) {
+    public init(text: NSAttributedString, width: CGFloat, origin: CGPoint, aligment: NSTextAlignment = .left) {
         self.text = text
         self.aligment = aligment
         
@@ -34,7 +34,7 @@ public class AttributedTextLayout: ViewLayout {
 }
 
 extension UILabel {
-    func applyLayout(_ layout: AttributedTextLayout) {
+    public func applyLayout(_ layout: AttributedTextLayout) {
         isHidden = layout.hidden
         if isHidden { return }
         frame = layout.frame
@@ -44,7 +44,7 @@ extension UILabel {
 }
 
 extension UITextView {
-    func applyLayout(_ layout: AttributedTextLayout) {
+    public func applyLayout(_ layout: AttributedTextLayout) {
         isHidden = layout.hidden
         if isHidden { return }
         frame = layout.frame
@@ -54,7 +54,7 @@ extension UITextView {
 }
 
 extension UIButton {
-    func applyLayout(_ layout: AttributedTextLayout) {
+    public func applyLayout(_ layout: AttributedTextLayout) {
         isHidden = layout.hidden
         if isHidden { return }
         frame = layout.frame

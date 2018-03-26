@@ -13,7 +13,7 @@ public class SpaceCell: BaseCollectionCell<SpaceCellViewModel, AutolayoutCellLay
     
     private var height: NSLayoutConstraint!
     
-    override func setupViews() {
+    override public func setupViews() {
         super.setupViews()
         
         backgroundColor = UIColor.clear

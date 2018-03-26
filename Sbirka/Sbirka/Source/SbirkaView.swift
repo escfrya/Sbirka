@@ -21,10 +21,12 @@ public class SbirkaView: UICollectionView, UICollectionViewDelegate, UICollectio
     private var registeredClass: [String: CollectionBaseCell.Type] = [:]
     private let updateQueue = DispatchQueue(label: "com.xuli.updateQueue", attributes: [])
     private let updateSemaphore = DispatchSemaphore(value: 1)
+    private var processedWidth: CGFloat = 0
     
-    var updateItemsCompleted: (() -> Void)?
-    var items = [[BaseCellViewModel]]()
+    public var updateItemsCompleted: (() -> Void)?
+    public var items: [[BaseCellViewModel]] = []
     public weak var emptyProvider: SbirkaEmptyViewProvider?
+    public var touched: ((BaseCellViewModel) -> Void)?
     
     // MARK: init
     
@@ -59,6 +61,14 @@ public class SbirkaView: UICollectionView, UICollectionViewDelegate, UICollectio
         dataSource = self
     }
     
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+
+        if processedWidth != bounds.width {
+            updateModels(items, context: .firstLoad) {}
+        }
+    }
+    
     // MARK: process changes
     
     public func update(items: [[BaseCellViewModel]], context: UpdateContext, callback: (() -> Void)? = nil) {
@@ -69,6 +79,7 @@ public class SbirkaView: UICollectionView, UICollectionViewDelegate, UICollectio
     }
     
     private func updateModels(_ newItems: [[BaseCellViewModel]], context: UpdateContext, callback: @escaping () -> Void) {
+        processedWidth = bounds.width
         processItemsChanges(newItems, context: context, callback: { [weak self] (changes, newItems, completion: @escaping (() -> Void)) in
             if let strongSelf = self {
                 let compl = {
@@ -275,12 +286,12 @@ public class SbirkaView: UICollectionView, UICollectionViewDelegate, UICollectio
 
     // MARK: register cells
     
-    func registerClass(_ cell: CollectionBaseCell.Type, identifier: String) {
+    public func registerClass(_ cell: CollectionBaseCell.Type, identifier: String) {
         registeredClass[identifier] = cell
         register(cell, forCellWithReuseIdentifier: identifier)
     }
     
-    func classForIdentifier(_ identifier: String) -> CollectionBaseCell.Type {
+    public func classForIdentifier(_ identifier: String) -> CollectionBaseCell.Type {
         if let registeredClass = registeredClass[identifier] {
             return registeredClass
         }
@@ -289,7 +300,7 @@ public class SbirkaView: UICollectionView, UICollectionViewDelegate, UICollectio
     
     // MARK: - scroll logic
     
-    private func needScrollToBottom(_ context: UpdateContext) -> Bool {
+    open func needScrollToBottom(_ context: UpdateContext) -> Bool {
         switch context {
         case .pagination:
             return false
@@ -350,6 +361,12 @@ public class SbirkaView: UICollectionView, UICollectionViewDelegate, UICollectio
     }
     
     // MARK: - UICollectionViewDelegate
+    
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        touched?(items[indexPath.section][indexPath.row])
+    }
     
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         (cell as? CollectionBaseCell)?.willDisplay()
